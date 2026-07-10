@@ -5,14 +5,14 @@
 ### Key Commands
 - **Backend**: `cd backend && npm run build && npm start` (requires `npm run build` first)
 - **Backend dev**: `cd backend && npm run dev` (uses ts-node directly)
-- **Frontend**: `cd backend/frontend && npm start`
+- **Frontend**: `cd frontend && npm start`
 - **Database**: `docker exec -i edis_db psql -U edis_user -d edis_dashboard_db < database/init.sql`
 - **Full stack**: Start backend, then frontend (runs on ports 3000 and 3001 respectively)
 
 ### Architecture Notes
-- Monorepo with separate `backend/` (Node/Express/TypeScript) and `backend/frontend/` (React/CRA/TypeScript) directories
+- Monorepo with separate `backend/` (Node/Express/TypeScript) and `frontend/` (React/CRA/TypeScript) directories
 - Backend entrypoint: `backend/src/app.ts`
-- Frontend entrypoint: `backend/frontend/src/App.tsx`
+- Frontend entrypoint: `frontend/src/App.tsx`
 - API base path: `/api` (e.g. `GET /api/tasks`)
 - PostgreSQL via Docker container `edis_db` on port 5432
 - DB credentials: `edis_user` / `edis_password` / `edis_dashboard_db`

@@ -1,0 +1,337 @@
+/* =============================================
+   🌿 Hobbit Theme — Shire-inspired Design Tokens
+   Earthy browns, deep greens, muted reds,
+   cozy textures, and rustic elegance.
+   ============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap');
+
+:root {
+  /* ── Forest & Leaf ─────────────────────── */
+  --color-forest-darkest: #1A3310;
+  --color-forest-dark:    #2D4A1E;
+  --color-forest:         #4A7C2E;
+  --color-forest-light:   #6B9B37;
+  --color-forest-pale:    #8DB66A;
+
+  /* ── Earth & Soil ──────────────────────── */
+  --color-earth-darkest:  #2C1810;
+  --color-earth-dark:     #3E2723;
+  --color-earth:          #6B4423;
+  --color-earth-light:    #8B5E3C;
+  --color-earth-pale:     #A67B5B;
+  --color-earth-faded:    #C4A882;
+
+  /* ── Clay & Rust ───────────────────────── */
+  --color-clay-dark:      #6B2A2A;
+  --color-clay:           #8B3A3A;
+  --color-clay-light:     #A0522D;
+  --color-clay-pale:      #C56E4E;
+  --color-rust:           #B85C3A;
+
+  /* ── Cream & Milk ──────────────────────── */
+  --color-cream-bright:   #FFFAF3;
+  --color-cream:          #FFF8F0;
+  --color-cream-dark:     #F5E6CC;
+  --color-cream-darker:   #E8D5B7;
+  --color-cream-deep:     #DCC4A0;
+
+  /* ── Gold & Honey ──────────────────────── */
+  --color-gold-dark:      #B8922E;
+  --color-gold:           #D4A843;
+  --color-gold-light:     #E8C56B;
+  --color-gold-pale:      #F2DBA0;
+  --color-honey:          #E0A82B;
+
+  /* ── Stone & Charcoal ──────────────────── */
+  --color-stone-light:    #D4CFC5;
+  --color-stone:          #9E9488;
+  --color-stone-dark:     #6B6359;
+  --color-charcoal:       #2C1810;
+  --color-charcoal-soft:  #4A3728;
+
+  /* ── Typography ────────────────────────── */
+  --font-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body:    'Merriweather', Georgia, 'Times New Roman', serif;
+  --font-mono:    'Courier New', Courier, monospace;
+
+  /* ── Sizing & Spacing ──────────────────── */
+  --border-radius-sm:  6px;
+  --border-radius-md:  12px;
+  --border-radius-lg:  20px;
+  --border-radius-xl:  28px;
+  --border-radius-round: 9999px;
+
+  /* ── Shadows (warm, amber-tinted) ──────── */
+  --shadow-sm:  0 2px 8px rgba(62, 39, 35, 0.08);
+  --shadow-md:  0 4px 20px rgba(62, 39, 35, 0.12);
+  --shadow-lg:  0 8px 32px rgba(62, 39, 35, 0.18);
+  --shadow-xl:  0 12px 48px rgba(62, 39, 35, 0.25);
+  --shadow-warm: 0 8px 32px rgba(180, 130, 70, 0.15);
+
+  /* ── Transitions ───────────────────────── */
+  --transition-fast:   150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow:   400ms ease;
+}
+
+/* ── Global Styles ────────────────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: var(--color-charcoal);
+  background-color: var(--color-cream);
+  background-image:
+    radial-gradient(ellipse at 20% 0%, rgba(107, 155, 55, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 100%, rgba(212, 168, 67, 0.06) 0%, transparent 50%);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--color-earth-dark);
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+}
+
+code {
+  font-family: var(--font-mono);
+}
+
+/* ── Rustic Paper / Card ────────────────── */
+.hobbit-paper {
+  background: var(--color-cream-bright);
+  border: 1px solid var(--color-cream-darker);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-md);
+  position: relative;
+  transition: box-shadow var(--transition-normal), transform var(--transition-normal);
+}
+
+.hobbit-paper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--border-radius-md);
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    rgba(245, 230, 204, 0.3) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+.hobbit-paper:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-1px);
+}
+
+/* ── Decorative Divider ─────────────────── */
+.hobbit-divider {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--color-cream-darker) 20%,
+    var(--color-cream-deep) 50%,
+    var(--color-cream-darker) 80%,
+    transparent
+  );
+  border: none;
+  margin: 1.5rem 0;
+}
+
+/* ── Leaf / Vine Decorative Border ──────── */
+.hobbit-border-ornate {
+  position: relative;
+  border: 2px solid var(--color-cream-darker);
+  border-radius: var(--border-radius-lg);
+}
+
+.hobbit-border-ornate::before {
+  content: '❦';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-cream);
+  color: var(--color-earth-pale);
+  padding: 0 12px;
+  font-size: 18px;
+}
+
+/* ── Status Badges ───────────────────────── */
+.hobbit-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 14px;
+  border-radius: var(--border-radius-round);
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.hobbit-badge--completed {
+  background: linear-gradient(135deg, var(--color-forest-light), var(--color-forest));
+  color: white;
+  box-shadow: 0 2px 8px rgba(74, 124, 46, 0.3);
+}
+
+.hobbit-badge--pending {
+  background: linear-gradient(135deg, var(--color-gold-light), var(--color-gold));
+  color: var(--color-earth-dark);
+  box-shadow: 0 2px 8px rgba(212, 168, 67, 0.3);
+}
+
+/* ── Button Base ─────────────────────────── */
+.hobbit-btn {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  text-transform: none;
+  letter-spacing: 0.02em;
+  position: relative;
+  overflow: hidden;
+}
+
+.hobbit-btn--primary {
+  background: linear-gradient(135deg, var(--color-forest), var(--color-forest-dark));
+  color: white;
+  border: none;
+  box-shadow: 0 3px 12px rgba(74, 124, 46, 0.3);
+}
+
+.hobbit-btn--primary:hover {
+  background: linear-gradient(135deg, var(--color-forest-light), var(--color-forest));
+  box-shadow: 0 4px 16px rgba(74, 124, 46, 0.4);
+  transform: translateY(-1px);
+}
+
+.hobbit-btn--secondary {
+  background: linear-gradient(135deg, var(--color-earth-light), var(--color-earth));
+  color: white;
+  border: none;
+  box-shadow: 0 3px 12px rgba(107, 68, 35, 0.3);
+}
+
+.hobbit-btn--secondary:hover {
+  background: linear-gradient(135deg, var(--color-earth-pale), var(--color-earth-light));
+  box-shadow: 0 4px 16px rgba(107, 68, 35, 0.4);
+  transform: translateY(-1px);
+}
+
+.hobbit-btn--outlined {
+  background: transparent;
+  color: var(--color-earth);
+  border: 2px solid var(--color-cream-darker);
+}
+
+.hobbit-btn--outlined:hover {
+  border-color: var(--color-earth-light);
+  background: rgba(139, 94, 60, 0.06);
+}
+
+/* ── Input Fields ────────────────────────── */
+.hobbit-input {
+  font-family: var(--font-body);
+  border: 2px solid var(--color-cream-darker);
+  border-radius: var(--border-radius-sm);
+  background: var(--color-cream-bright);
+  color: var(--color-charcoal);
+  padding: 10px 14px;
+  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.hobbit-input:focus {
+  outline: none;
+  border-color: var(--color-forest-light);
+  box-shadow: 0 0 0 3px rgba(107, 155, 55, 0.15);
+}
+
+.hobbit-input::placeholder {
+  color: var(--color-stone);
+  font-style: italic;
+}
+
+/* ── Table ───────────────────────────────── */
+.hobbit-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.hobbit-table th {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--color-earth-dark);
+  text-align: left;
+  padding: 14px 16px;
+  border-bottom: 2px solid var(--color-cream-darker);
+  background: linear-gradient(to bottom, var(--color-cream), var(--color-cream-dark));
+}
+
+.hobbit-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-cream-darker);
+  color: var(--color-charcoal-soft);
+}
+
+.hobbit-table tr:last-child td {
+  border-bottom: none;
+}
+
+.hobbit-table tr:hover td {
+  background: rgba(245, 230, 204, 0.4);
+}
+
+/* ── Scrollbar (cozy, rounded) ───────────── */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-cream-dark);
+  border-radius: var(--border-radius-sm);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-earth-faded);
+  border-radius: var(--border-radius-sm);
+  border: 2px solid var(--color-cream-dark);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-earth-light);
+}
+
+/* ── Selection ───────────────────────────── */
+::selection {
+  background: rgba(74, 124, 46, 0.2);
+  color: var(--color-forest-darkest);
+}
+
+/* ── Keyframe: gentle leaf sway ──────────── */
+@keyframes leaf-sway {
+  0%, 100% { transform: rotate(-1deg); }
+  50% { transform: rotate(1deg); }
+}
