@@ -8,6 +8,9 @@ services:
       - ./backend:/app
     environment:
       NODE_ENV: development
+      DATABASE_URL: postgres://edis:securepassword@database:5432/edis_dashboard
+    depends_on:
+      - database
   frontend:
     build: ./frontend
     ports:
@@ -27,5 +30,6 @@ services:
       POSTGRES_DB: edis_dashboard
     volumes:
       - postgres_data:/var/lib/postgresql/data
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
 volumes:
   postgres_data:
